@@ -9,7 +9,7 @@ from typing import List
 from pydantic import BaseModel
 from mangum import Mangum
 
-
+# load pickles
 model = load_pickle("./artifacts/model.pkl")
 
 
@@ -32,7 +32,6 @@ class ModelInputs(BaseModel):
     def return_dict_inputs(cls):
         return [dict(input) for input in cls.all]
     
-
 
 # model prediction
 def diabetes_predictor(x: dict) -> dict:
